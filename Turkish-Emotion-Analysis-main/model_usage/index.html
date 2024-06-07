@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duygu Analizi</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <input type="text" class="form-control mb-2" id="inputText" placeholder="Metninizi girin">
+        <button type="button" class="btn btn-primary mb-2" onclick="analyzeEmotion()">Analiz Et</button>
+        <div id="resultLabel" class="mt-3">
+            <h5>Duygu Sonuçları:</h5>
+            <ul>
+                <li id="anger">Öfke:</li>
+                <li id="surprise">Şaşkınlık:</li>
+                <li id="joy">Sevinç:</li>
+                <li id="sadness">Üzüntü:</li>
+                <li id="fear">Korku:</li>
+                <li id="disgust">İğrenme:</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function analyzeEmotion() {
+            const text = document.getElementById("inputText").value;
+            const response = await fetch("/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ text: text })
+            });
+            const data = await response.json();
+            document.getElementById("anger").innerText = "Öfke: " + data.anger.toFixed(2);
+            document.getElementById("surprise").innerText = "Şaşkınlık: " + data.surprise.toFixed(2);
+            document.getElementById("joy").innerText = "Sevinç: " + data.joy.toFixed(2);
+            document.getElementById("sadness").innerText = "Üzüntü: " + data.sadness.toFixed(2);
+            document.getElementById("fear").innerText = "Korku: " + data.fear.toFixed(2);
+            document.getElementById("disgust").innerText = "İğrenme: " + data.disgust.toFixed(2);
+        }
+    </script>
+</body>
+</html>
