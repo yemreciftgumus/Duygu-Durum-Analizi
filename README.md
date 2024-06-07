@@ -18,7 +18,10 @@ Model, Türkçe duygu analizi için BERT tabanlı bir modeldir. Model eğitimi, 
 Dağıtım Adımları
 Gerekli Kütüphanelerin Yüklenmesi: Projeyi çalıştırmak için gerekli olan Python kütüphanelerini yükleyin. Bunlar arasında FastAPI, Transformers, ve diğer bağımlılıklar bulunabilir.
 
-Modelin ve Servis Kodunun Kopyalanması: Modelinizi ve servis kodunu hedef bilgisayara kopyalayın. Model dosyasını ve main.py gibi servis dosyalarını doğru dizinlere yerleştirin.
+Modelin ve Servis Kodunun Kopyalanması: Modelinizi ve servis kodunu hedef bilgisayara kopyalayın. Model dosyasını ve main.py gibi servis dosyalarını doğru dizinlere yerleştirin. 
+
+Modeli kullanmak için turkish_emotion_analiz.pt model dosyasını şu adresten indirebilirsiniz: https://drive.google.com/file/d/1vTjOR6DJqpi40yyJKbDbSc2fJ3hy_CTF/view 
+Bu modeli indirdikten sonra dosya dizininizde model isimli bir dosya oluşturup onun içine atabilirsiniz. Bu olmazsa kod çalışmayacaktır. 
 
 Gerekli Kütüphanelerin Kurulumu: Hedef bilgisayarda Python ortamını kurun ve gerekli kütüphaneleri yükleyin. Bunlar arasında FastAPI, Transformers ve diğer bağımlılıklar bulunabilir.
 
